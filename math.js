@@ -20,8 +20,15 @@ function checkAnswer() {
     if (prediction == answer) {
         score++;
         console.log('Correct!! Score is: ' + score);
+        if (score <= 6){
         backgroundImages.push(`url('images/background${score}.svg')`);
-        document.body.style.backgroundImage = backgroundImages;
+        document.body.style.backgroundImage = backgroundImages;}
+        else {
+            alert('Congrats!!! You beat the game!!!')
+            score = 0;
+            backgroundImages = [];
+            document.body.style.backgroundImage = backgroundImages;
+        }
     } else {
         if (score != 0) { score-- };
         console.log('Wrong! Score is: ' + score);
@@ -33,12 +40,5 @@ function checkAnswer() {
 
 
 
-}
-
-if (score == 6) {
-    alert('Congrats!!! You beat the game!!!')
-    score = 0;
-    backgroundImages = [];
-    document.body.style.backgroundImage = backgroundImages;
 
 }
